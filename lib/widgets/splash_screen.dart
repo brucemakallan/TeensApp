@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../assets.dart';
 import './hexagon.dart';
+import './logo_blink.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -16,13 +17,9 @@ class SplashScreen extends StatelessWidget {
         child: Align(
             alignment: Alignment.center,
             child: SizedBox(
-                width: 200.0,
-                height: 200.0,
-                child: wrapInHexagon(
-                  Image.asset(
-                    LocalImages.logoWithBackground,
-                    fit: BoxFit.fill,
-                  ),
-                ))));
+              width: 200.0,
+              height: 200.0,
+              child: wrapInHexagon(AnimatedLogo()),
+            )));
   }
 }

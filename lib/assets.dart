@@ -13,3 +13,7 @@ class CustomTheme {
   static final Color primaryDark = Color.fromARGB(255, 77, 198, 247);
   static final Color primaryDeep = Color.fromARGB(255, 20, 119, 158);
 }
+
+class CustomAnimations {
+  static final String logoBlink = "assets/animations/logo_blink.flr";
+}
