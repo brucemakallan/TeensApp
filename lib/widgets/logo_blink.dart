@@ -13,7 +13,7 @@ class LogoState extends State<AnimatedLogo> {
 
   @override
   void initState() {
-    active = false;
+    active = true;
     super.initState();
   }
 
@@ -32,7 +32,13 @@ class LogoState extends State<AnimatedLogo> {
       child: FlareActor(
         animationAsset,
         fit: BoxFit.fill,
-        animation: active ? 'blinkLeft' : 'idle',
+        alignment: Alignment.center,
+        animation: active ? 'blink' : 'idle',
+        callback: (animationName) {
+          setState(() {
+            active = false;
+          });
+        },
       ),
     );
   }

@@ -44,7 +44,6 @@ flutter:
   assets:
     - assets/images/splash_bg.jpg
     - assets/images/logo.png
-    - assets/images/logo_with_bg.png
     - assets/animations/logo_blink.flr
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

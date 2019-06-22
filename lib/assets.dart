@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class LocalImages {
   static final String logo = "assets/images/logo.png";
-  static final String logoWithBackground = "assets/images/logo_with_bg.png";
   static final String splashBackground = "assets/images/splash_bg.jpg";
 }
 
