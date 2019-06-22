@@ -14,5 +14,5 @@ class CustomTheme {
 }
 
 class CustomAnimations {
-  static final String logoBlink = "assets/animations/logo_blink.flr";
+  static final String logoBlink = "assets/animations/blinkAnimation.flr";
 }
