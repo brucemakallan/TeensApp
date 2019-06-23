@@ -6,11 +6,24 @@ class LocalImages {
 }
 
 class CustomTheme {
-  // logo blue #91d5f2
-  static final Color primary = Color.fromARGB(255, 145, 213, 243);
-  static final Color primaryLight = Color.fromARGB(255, 153, 215, 243);
-  static final Color primaryDark = Color.fromARGB(255, 77, 198, 247);
-  static final Color primaryDeep = Color.fromARGB(255, 20, 119, 158);
+  // Blue
+  static final Color logoBlue = Color.fromARGB(255, 145, 213, 243);
+  static final Color primary300 = Color.fromARGB(255, 79, 195, 247);
+  static final Color primary400 = Color.fromARGB(255, 41, 182, 246);
+  static final Color primary500 = Color.fromARGB(255, 3, 169, 244);
+  static final Color primary600 = Color.fromARGB(255, 3, 155, 229);
+  static final Color primary700 = Color.fromARGB(255, 2, 136, 209);
+  static final Color primary800 = Color.fromARGB(255, 2, 119, 189);
+  static final Color primary900 = Color.fromARGB(255, 1, 87, 155);
+
+  // Pink #E91E63
+  static final Color accent300 = Color.fromARGB(255, 240, 98, 146);
+  static final Color accent400 = Color.fromARGB(255, 236, 64, 122);
+  static final Color accent500 = Color.fromARGB(255, 233, 30, 99);
+  static final Color accent600 = Color.fromARGB(255, 216, 27, 96);
+  static final Color accent700 = Color.fromARGB(255, 194, 24, 91);
+  static final Color accent800 = Color.fromARGB(255, 173, 20, 87);
+  static final Color accent900 = Color.fromARGB(255, 136, 14, 79);
 }
 
 class CustomAnimations {

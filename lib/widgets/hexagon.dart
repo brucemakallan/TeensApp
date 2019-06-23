@@ -7,8 +7,8 @@ Widget wrapInHexagon(Widget child) => ClipPolygon(
       sides: 6,
       borderRadius: 5.0,
       boxShadows: [
-        PolygonBoxShadow(color: CustomTheme.primary, elevation: 1.0),
-        PolygonBoxShadow(color: CustomTheme.primary, elevation: 5.0)
+        PolygonBoxShadow(color: CustomTheme.logoBlue, elevation: 1.0),
+        PolygonBoxShadow(color: CustomTheme.logoBlue, elevation: 5.0)
       ],
       child: child,
     );
