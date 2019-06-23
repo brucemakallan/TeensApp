@@ -5,6 +5,7 @@ import '../assets.dart';
 import './hexagon.dart';
 import './logo_blink.dart';
 import './home.dart';
+import './scale_animation.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return new Timer(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Home()),
+        ScaleRoute(page: Home()),
       );
     });
   }
