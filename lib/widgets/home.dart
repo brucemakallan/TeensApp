@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../assets.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -44,16 +46,22 @@ class _HomeState extends State<Home> {
     final double topAndBottom = isActive ? 0 : 200;
     final double leftAndRight = isActive ? 0 : 150;
 
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 2000),
-      curve: Curves.easeOutExpo,
-      margin: EdgeInsets.only(
-          top: topAndBottom,
-          bottom: topAndBottom,
-          left: leftAndRight,
-          right: leftAndRight),
-      child: Container(
-        color: Colors.green,
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(LocalImages.pageBackground),
+              repeat: ImageRepeat.repeat)),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 2000),
+        curve: Curves.easeOutExpo,
+        margin: EdgeInsets.only(
+            top: topAndBottom,
+            bottom: topAndBottom,
+            left: leftAndRight,
+            right: leftAndRight),
+        child: Container(
+          color: CustomTheme.accent900,
+        ),
       ),
     );
   }

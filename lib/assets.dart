@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class LocalImages {
   static final String logo = "assets/images/logo.png";
   static final String splashBackground = "assets/images/splash_bg.jpg";
+  static final String pageBackground = "assets/images/dust_scratches.png";
 }
 
 class CustomTheme {
