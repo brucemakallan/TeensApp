@@ -11,6 +11,8 @@ class _HomeState extends State<Home> {
   final PageController pageController = PageController(initialPage: 0);
   final int numberOfPages = 2;
   int currentPage = 0;
+  final double marginBeforeAnimation = 150;
+  final int animationDuration = 1500;
 
   @override
   void initState() {
@@ -43,8 +45,8 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildPage(bool isActive) {
-    final double topAndBottom = isActive ? 0 : 200;
-    final double leftAndRight = isActive ? 0 : 150;
+    final double topAndBottom = isActive ? 0 : marginBeforeAnimation;
+    final double leftAndRight = isActive ? 0 : marginBeforeAnimation;
 
     return Container(
       decoration: BoxDecoration(
@@ -52,7 +54,7 @@ class _HomeState extends State<Home> {
               image: AssetImage(LocalImages.pageBackground),
               repeat: ImageRepeat.repeat)),
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 2000),
+        duration: Duration(milliseconds: animationDuration),
         curve: Curves.easeOutExpo,
         margin: EdgeInsets.only(
             top: topAndBottom,
