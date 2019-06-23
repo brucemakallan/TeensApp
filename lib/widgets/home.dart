@@ -49,10 +49,7 @@ class _HomeState extends State<Home> {
     final double leftAndRight = isActive ? 0 : marginBeforeAnimation;
 
     return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(LocalImages.pageBackground),
-              repeat: ImageRepeat.repeat)),
+      color: CustomTheme.primary300,
       child: AnimatedContainer(
         duration: Duration(milliseconds: animationDuration),
         curve: Curves.easeOutExpo,

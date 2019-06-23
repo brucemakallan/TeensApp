@@ -19,7 +19,7 @@ class LogoState extends State<AnimatedLogo> {
 
   @override
   Widget build(BuildContext context) {
-    return _flare(CustomAnimations.logoBlink);
+    return _flare(AnimationAssets.logoBlink);
   }
 
   Widget _flare(String animationAsset) {

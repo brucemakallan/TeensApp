@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class LocalImages {
   static final String logo = "assets/images/logo.png";
   static final String splashBackground = "assets/images/splash_bg.jpg";
-  static final String pageBackground = "assets/images/dust_scratches.png";
 }
 
 class CustomTheme {
@@ -25,8 +24,10 @@ class CustomTheme {
   static final Color accent700 = Color.fromARGB(255, 194, 24, 91);
   static final Color accent800 = Color.fromARGB(255, 173, 20, 87);
   static final Color accent900 = Color.fromARGB(255, 136, 14, 79);
+  static final Color sky = Color.fromARGB(255, 34, 83, 244);
 }
 
-class CustomAnimations {
+class AnimationAssets {
   static final String logoBlink = "assets/animations/blinkAnimation.flr";
+  static final String sunClouds = "assets/animations/sun_clouds.flr";
 }
