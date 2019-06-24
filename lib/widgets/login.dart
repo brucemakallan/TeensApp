@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
+import './google_auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -24,19 +25,24 @@ class _LoginState extends State<Login> {
                 animation: 'Sun Rotate',
               ),
             ),
-            Center(
-              child: Card(
-                color: Color.fromARGB(200, 255, 255, 255),
-                margin: EdgeInsets.all(30),
-                child: ListTile(
-                  leading: Image.asset(LocalImages.logo),
-                  title: Text('Hi there,'),
-                  subtitle: Text(
-                      "Excited to have you here. Let's get you up and running"),
-                  isThreeLine: true,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Card(
+                  color: Color.fromARGB(200, 255, 255, 255),
+                  margin: EdgeInsets.all(30),
+                  child: ListTile(
+                    leading: Image.asset(LocalImages.logo),
+                    title: Text('Hi there,'),
+                    subtitle: Text(
+                        "Excited to have you here. Let's get you up and running"),
+                    isThreeLine: true,
+                  ),
                 ),
-              ),
-            )
+                GoogleAuthButton(),
+              ],
+            ),
           ],
         ));
   }
