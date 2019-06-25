@@ -30,4 +30,10 @@ class CustomTheme {
 class AnimationAssets {
   static final String logoBlink = "assets/animations/blinkAnimation.flr";
   static final String sunClouds = "assets/animations/sun_clouds.flr";
+  static final String buttonLoaderFacebook =
+      "assets/animations/button_loading_facebook.flr";
+  static final String buttonLoaderTwitter =
+      "assets/animations/button_loading_twitter.flr";
+  static final String buttonLoaderGoogle =
+      "assets/animations/button_loading_google.flr";
 }
