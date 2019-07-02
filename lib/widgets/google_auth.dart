@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
+import './cloud_firestore_db.dart';
 
 class GoogleAuthButton extends StatefulWidget {
   @override
@@ -41,7 +42,6 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
     );
 
     final FirebaseUser user = await _auth.signInWithCredential(credential);
-    print("signed in " + user.displayName);
     return user;
   }
 
@@ -51,9 +51,14 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
         setState(() {
           active = true;
         });
-        _handleSignIn()
-            .then((FirebaseUser user) => print(user))
-            .catchError((e) => print("Google Firebase Auth Error: $e"));
+        _handleSignIn().then((FirebaseUser user) {
+          print("Signed in " + user.displayName);
+          // add user to Firebase database
+          User(user.email, user.displayName, imageUrl: user.photoUrl)
+              .createUser()
+              .then((res) => print('User registered successfully'))
+              .catchError((e) => print("User Registration Error: $e"));
+        }).catchError((e) => print("Google Firebase Auth Error: $e"));
       },
       child: Stack(
         alignment: Alignment.center,
