@@ -76,11 +76,16 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
           ),
           Opacity(
             opacity: active ? 0.0 : 1.0,
-            child: Material(
+            child: Padding(
+              padding: EdgeInsets.only(left: 40.0),
               child: Text(
                 buttonText,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 18.0),
+                style: TextStyle(
+                    fontSize: 17.0,
+                    color: Colors.black,
+                    fontFamily: 'MontserratLight',
+                    decoration: TextDecoration.none),
               ),
             ),
           ),
