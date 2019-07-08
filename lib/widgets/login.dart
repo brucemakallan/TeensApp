@@ -3,6 +3,7 @@ import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
 import './google_auth.dart';
+import './facebook_auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -41,6 +42,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 GoogleAuthButton(),
+                FacebookAuthButton(),
               ],
             ),
           ],

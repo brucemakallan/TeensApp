@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">Teens App</string>
+  <string name="app_version">2.0.0</string>
+
+  <string name="facebook_app_id">467307927368257</string>
+  <string name="fb_login_protocol_scheme">fb467307927368257</string>
+</resources>
