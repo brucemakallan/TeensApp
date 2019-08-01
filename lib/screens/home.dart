@@ -14,6 +14,7 @@ class _HomeState extends State<Home> {
   int currentPage = 0;
   final double marginBeforeAnimation = 150;
   final int animationDuration = 1500;
+  String email = '';
 
   @override
   void initState() {
@@ -22,6 +23,7 @@ class _HomeState extends State<Home> {
       if (currentPage != next) {
         setState(() {
           currentPage = next;
+          email = '';
         });
       }
     });
@@ -30,6 +32,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    SharedPref('email')
+        .getValue()
+        .then((value) => setState(() {
+              email = value;
+            }))
+        .catchError((e) => setState(() {
+              email = '';
+            }));
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Homepage"),
@@ -60,14 +71,18 @@ class _HomeState extends State<Home> {
             left: leftAndRight,
             right: leftAndRight),
         child: Container(
-          color: CustomTheme.accent900,
-          child: RaisedButton(
-            onPressed: () {
-              SharedPref('email').removeKey();
-            },
-            child: Text('Log Out'),
-          ),
-        ),
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    SharedPref('email').removeKey();
+                  },
+                  child: Text('Log Out'),
+                ),
+                Text(email),
+              ],
+            )),
       ),
     );
   }
