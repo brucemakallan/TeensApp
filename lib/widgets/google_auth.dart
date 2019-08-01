@@ -5,6 +5,7 @@ import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
 import './firestore_db.dart';
+import './shared_pref.dart';
 
 class GoogleAuthButton extends StatefulWidget {
   @override
@@ -56,8 +57,13 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
           // add user to Firebase database
           User(user.email, user.displayName, imageUrl: user.photoUrl)
               .createUser()
-              .then((res) => print('Google User registered successfully'))
-              .catchError((e) => print("Google User Registration Error: $e"));
+              .then((res) {
+            SharedPref('email')
+                .setValue(user.email)
+                .then((void x) => print('Google User registered successfully'))
+                .catchError(
+                    (e) => print('Could not save email to shared preferences'));
+          }).catchError((e) => print("Google User Registration Error: $e"));
         }).catchError((e) => print("Google Firebase Auth Error: $e"));
       },
       child: Stack(
