@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
-import './google_auth.dart';
-import './facebook_auth.dart';
+import '../widgets/google_auth.dart';
+import '../widgets/facebook_auth.dart';
 
 class Login extends StatefulWidget {
   @override

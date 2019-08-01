@@ -4,8 +4,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
-import './firestore_db.dart';
-import './shared_pref.dart';
+import '../utils/firestore_db.dart';
+import '../utils/shared_pref.dart';
 
 class GoogleAuthButton extends StatefulWidget {
   @override

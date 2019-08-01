@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import '../assets.dart';
-import './hexagon.dart';
-import './logo_blink.dart';
-import './home.dart';
-import './login.dart';
-import './scale_animation.dart';
+import '../widgets/hexagon.dart';
+import '../widgets/logo_blink.dart';
+import '../screens/home.dart';
+import '../screens/login.dart';
+import '../widgets/scale_animation.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

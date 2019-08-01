@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 import '../assets.dart';
-import './firestore_db.dart';
+import '../utils/firestore_db.dart';
 
 class FacebookAuthButton extends StatefulWidget {
   @override
