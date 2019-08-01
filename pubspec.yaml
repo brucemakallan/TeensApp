@@ -30,6 +30,7 @@ dependencies:
   firebase_database: ^3.0.3
   flutter_facebook_login: ^2.0.1
   shared_preferences: ^0.5.3+4
+  provider: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:

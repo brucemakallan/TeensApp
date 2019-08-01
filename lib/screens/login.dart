@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/assets.dart';
 import '../widgets/google_auth.dart';
 import '../widgets/facebook_auth.dart';
+import '../state.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -13,6 +15,8 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    GlobalState globalState = Provider.of<GlobalState>(context);
+
     return Container(
         color: CustomTheme.sky,
         child: Stack(
@@ -45,6 +49,11 @@ class _LoginState extends State<Login> {
                 FacebookAuthButton(),
               ],
             ),
+            globalState.loading
+                ? Container(
+                    color: Color.fromARGB(160, 255, 255, 255),
+                    child: Center(child: CircularProgressIndicator()))
+                : Container(),
           ],
         ));
   }

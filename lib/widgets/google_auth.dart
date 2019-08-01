@@ -3,11 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:teens_app/screens/home.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/assets.dart';
 import '../utils/firestore_db.dart';
 import '../utils/shared_pref.dart';
-import 'scale_animation.dart';
+import './scale_animation.dart';
+import '../state.dart';
 
 class GoogleAuthButton extends StatefulWidget {
   @override
@@ -30,7 +32,7 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
     return Container(
       height: 100.0,
       child: _buttonLoader(
-          AnimationAssets.buttonLoaderGoogle, 'Login with Google'),
+          context, AnimationAssets.buttonLoaderGoogle, 'Login with Google'),
     );
   }
 
@@ -48,7 +50,10 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
     return user;
   }
 
-  Widget _buttonLoader(String animationAsset, String buttonText) {
+  Widget _buttonLoader(
+      BuildContext context, String animationAsset, String buttonText) {
+    GlobalState globalState = Provider.of<GlobalState>(context);
+
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -62,14 +67,23 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
               .then((res) {
             SharedPref('email').setValue(user.email).then((void x) {
               print('Google User registered successfully');
+              globalState.loading = false;
               Navigator.pushReplacement(
                 context,
                 ScaleRoute(page: Home()),
               );
-            }).catchError(
-                (e) => print('Could not save email to shared preferences'));
-          }).catchError((e) => print("Google User Registration Error: $e"));
-        }).catchError((e) => print("Google Firebase Auth Error: $e"));
+            }).catchError((e) {
+              print('Could not save email to shared preferences');
+              globalState.loading = false;
+            });
+          }).catchError((e) {
+            print("Google User Registration Error: $e");
+            globalState.loading = false;
+          });
+        }).catchError((e) {
+          print("Google Firebase Auth Error: $e");
+          globalState.loading = false;
+        });
       },
       child: Stack(
         alignment: Alignment.center,
@@ -80,6 +94,7 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
             fit: BoxFit.fitWidth,
             alignment: Alignment.center,
             callback: (animationName) {
+              globalState.loading = true;
               setState(() {
                 active = false;
               });
