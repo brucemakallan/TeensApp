@@ -1,5 +1,7 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'dart:core';
+import 'dart:convert';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:crypto/crypto.dart';
 
 class User {
   final String oAuthEmail;
@@ -8,8 +10,10 @@ class User {
 
   User(this.oAuthEmail, this.displayName, {this.imageUrl});
 
-  Future<void> createUser() =>
-      FirebaseDatabase.instance.reference().push().set({
+  Future<void> createUser() => FirebaseDatabase.instance
+          .reference()
+          .child(md5.convert(utf8.encode(oAuthEmail)).toString())
+          .set({
         'email': oAuthEmail,
         'username': displayName,
         'profilePic': imageUrl,
