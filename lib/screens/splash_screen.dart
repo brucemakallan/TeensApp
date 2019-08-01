@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _gotoHomePage();
   }
 
-  Future<Timer> _gotoHomePage() async {
+  Future<void> _gotoHomePage() async {
     SharedPref('email')
         .getValue()
         .then((email) => Timer(Duration(seconds: 4), () {

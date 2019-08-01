@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../assets.dart';
 import '../utils/shared_pref.dart';
+import 'login.dart';
+import '../widgets/scale_animation.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -50,13 +52,13 @@ class _HomeState extends State<Home> {
         itemCount: numberOfPages,
         itemBuilder: (context, int currentIndex) {
           bool active = currentPage == currentIndex;
-          return SafeArea(child: _buildPage(active));
+          return SafeArea(child: _buildPage(context, active));
         },
       ),
     );
   }
 
-  Widget _buildPage(bool isActive) {
+  Widget _buildPage(BuildContext context, bool isActive) {
     final double topAndBottom = isActive ? 0 : marginBeforeAnimation;
     final double leftAndRight = isActive ? 0 : marginBeforeAnimation;
 
@@ -77,6 +79,10 @@ class _HomeState extends State<Home> {
                 RaisedButton(
                   onPressed: () {
                     SharedPref('email').removeKey();
+                    Navigator.pushReplacement(
+                      context,
+                      ScaleRoute(page: Login()),
+                    );
                   },
                   child: Text('Log Out'),
                 ),

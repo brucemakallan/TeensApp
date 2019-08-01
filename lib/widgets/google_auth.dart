@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:teens_app/screens/home.dart';
 
 import '../assets.dart';
 import '../utils/firestore_db.dart';
 import '../utils/shared_pref.dart';
+import 'scale_animation.dart';
 
 class GoogleAuthButton extends StatefulWidget {
   @override
@@ -58,11 +60,14 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
           User(user.email, user.displayName, imageUrl: user.photoUrl)
               .createUser()
               .then((res) {
-            SharedPref('email')
-                .setValue(user.email)
-                .then((void x) => print('Google User registered successfully'))
-                .catchError(
-                    (e) => print('Could not save email to shared preferences'));
+            SharedPref('email').setValue(user.email).then((void x) {
+              print('Google User registered successfully');
+              Navigator.pushReplacement(
+                context,
+                ScaleRoute(page: Home()),
+              );
+            }).catchError(
+                (e) => print('Could not save email to shared preferences'));
           }).catchError((e) => print("Google User Registration Error: $e"));
         }).catchError((e) => print("Google Firebase Auth Error: $e"));
       },

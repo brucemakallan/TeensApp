@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:teens_app/screens/home.dart';
 
 import '../assets.dart';
 import '../utils/firestore_db.dart';
 import '../utils/shared_pref.dart';
+import 'scale_animation.dart';
 
 class FacebookAuthButton extends StatefulWidget {
   @override
@@ -57,9 +59,13 @@ class _FacebookAuthButtonState extends State<FacebookAuthButton> {
               .then((res) {
             SharedPref('email')
                 .setValue(user.providerData[0].email)
-                .then(
-                    (void x) => print('Facebook User registered successfully'))
-                .catchError(
+                .then((void x) {
+              print('Facebook User registered successfully');
+              Navigator.pushReplacement(
+                context,
+                ScaleRoute(page: Home()),
+              );
+            }).catchError(
                     (e) => print('Could not save email to shared preferences'));
           }).catchError((e) => print("Facebook User Registration Error: $e"));
         }).catchError((e) => print("Facebook Firebase Auth Error: $e"));
