@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import '../assets.dart';
+import '../utils/assets.dart';
 import '../widgets/hexagon.dart';
 import '../widgets/logo_blink.dart';
 import '../screens/home.dart';

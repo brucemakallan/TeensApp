@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:polygon_clipper/polygon_clipper.dart';
 
-import '../assets.dart';
+import '../utils/assets.dart';
 
 Widget wrapInHexagon(Widget child) => ClipPolygon(
       sides: 6,

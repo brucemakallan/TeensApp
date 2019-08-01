@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:teens_app/screens/home.dart';
 
-import '../assets.dart';
+import '../utils/assets.dart';
 import '../utils/firestore_db.dart';
 import '../utils/shared_pref.dart';
 import 'scale_animation.dart';

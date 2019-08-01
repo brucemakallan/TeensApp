@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../assets.dart';
+import '../utils/assets.dart';
 import '../utils/shared_pref.dart';
 import 'login.dart';
 import '../widgets/scale_animation.dart';

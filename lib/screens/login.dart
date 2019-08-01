@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
-import '../assets.dart';
+import '../utils/assets.dart';
 import '../widgets/google_auth.dart';
 import '../widgets/facebook_auth.dart';
 
