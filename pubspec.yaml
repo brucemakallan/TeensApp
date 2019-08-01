@@ -55,6 +55,7 @@ flutter:
     - assets/animations/button_loading_facebook.flr
     - assets/animations/button_loading_google.flr
     - assets/animations/button_loading_twitter.flr
+    - assets/animations/loading.flr
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

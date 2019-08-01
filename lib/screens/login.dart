@@ -6,6 +6,7 @@ import '../utils/assets.dart';
 import '../widgets/google_auth.dart';
 import '../widgets/facebook_auth.dart';
 import '../state.dart';
+import '../widgets/flare_animation.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -51,8 +52,13 @@ class _LoginState extends State<Login> {
             ),
             globalState.loading
                 ? Container(
-                    color: Color.fromARGB(160, 255, 255, 255),
-                    child: Center(child: CircularProgressIndicator()))
+                    color: Color.fromARGB(160, 0, 0, 0),
+                    child: Center(
+                        child: SizedBox(
+                            height: 300.0,
+                            width: 300.0,
+                            child:
+                                FlareAnimation(AnimationAssets.loading, 'go'))))
                 : Container(),
           ],
         ));
