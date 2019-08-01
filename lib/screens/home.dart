@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
+import '../utils/shared_pref.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -60,6 +61,12 @@ class _HomeState extends State<Home> {
             right: leftAndRight),
         child: Container(
           color: CustomTheme.accent900,
+          child: RaisedButton(
+            onPressed: () {
+              SharedPref('email').removeKey();
+            },
+            child: Text('Log Out'),
+          ),
         ),
       ),
     );

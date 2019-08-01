@@ -12,6 +12,15 @@ class SharedPref {
 
   Future<String> getValue() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.getString(this.key);
+    String value = preferences.getString(this.key) ?? '';
+    if (value == '')
+      throw Exception("Value matching ${this.key} not found");
+    else
+      return value;
+  }
+
+  Future<void> removeKey() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.remove(this.key);
   }
 }

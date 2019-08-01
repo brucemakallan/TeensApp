@@ -7,6 +7,7 @@ import '../widgets/logo_blink.dart';
 import '../screens/home.dart';
 import '../screens/login.dart';
 import '../widgets/scale_animation.dart';
+import '../utils/shared_pref.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -21,13 +22,20 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<Timer> _gotoHomePage() async {
-    return new Timer(Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-        context,
-        // ScaleRoute(page: Home()),
-        ScaleRoute(page: Login()),
-      );
-    });
+    SharedPref('email')
+        .getValue()
+        .then((email) => Timer(Duration(seconds: 4), () {
+              Navigator.pushReplacement(
+                context,
+                ScaleRoute(page: Home()),
+              );
+            }))
+        .catchError((e) => Timer(Duration(seconds: 4), () {
+              Navigator.pushReplacement(
+                context,
+                ScaleRoute(page: Login()),
+              );
+            }));
   }
 
   @override
