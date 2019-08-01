@@ -9,10 +9,15 @@ class MenuScreen extends StatelessWidget {
   final String imageUrl =
       "https://celebritypets.net/wp-content/uploads/2016/12/Adriana-Lima.jpg";
 
-  final List<MenuItem> options = [
+  final List<MenuItem> primaryOptions = [
     MenuItem(Icons.search, 'Search'),
-    MenuItem(Icons.power, 'Connecting with God'),
+    MenuItem(Icons.power, 'Connect with God'),
     MenuItem(Icons.favorite, 'Favorites'),
+  ];
+  final List<MenuItem> secondaryOptions = [
+    MenuItem(Icons.help, 'Help Desk'),
+    MenuItem(Icons.insert_link, 'Our Website'),
+    MenuItem(Icons.lock, 'Privacy Policy'),
   ];
 
   @override
@@ -51,7 +56,26 @@ class MenuScreen extends StatelessWidget {
             ),
             Spacer(),
             Column(
-              children: options.map((item) {
+              children: primaryOptions.map((item) {
+                return ListTile(
+                  leading: Icon(
+                    item.icon,
+                    color: Colors.white,
+                    size: 28,
+                  ),
+                  title: Text(
+                    item.title,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                );
+              }).toList(),
+            ),
+            Spacer(),
+            Column(
+              children: secondaryOptions.map((item) {
                 return ListTile(
                   leading: Icon(
                     item.icon,
@@ -60,44 +84,10 @@ class MenuScreen extends StatelessWidget {
                   ),
                   title: Text(
                     item.title,
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                    style: TextStyle(fontSize: 14, color: Colors.white),
                   ),
                 );
               }).toList(),
-            ),
-            Spacer(),
-            ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.help,
-                color: Colors.white,
-                size: 20,
-              ),
-              title: Text('Help Desk',
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.insert_link,
-                color: Colors.white,
-                size: 20,
-              ),
-              title: Text('Our Website',
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.lock,
-                color: Colors.white,
-                size: 20,
-              ),
-              title: Text('Privacy Policy',
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
             ),
           ],
         ),
