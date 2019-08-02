@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 import './app_bar.dart';
+import './tabs/life_skills.dart';
+import './tabs/devotionals.dart';
+import './tabs/resources.dart';
+import './tabs/quizzes.dart';
 
 class MainBody extends StatelessWidget {
   @override
@@ -9,22 +13,14 @@ class MainBody extends StatelessWidget {
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           appBar: CustomAppBar(context).getAppBar(),
           body: TabBarView(
             children: <Widget>[
-              Container(
-                color: Colors.white,
-              ),
-              Container(
-                color: Colors.white,
-              ),
-              Container(
-                color: Colors.white,
-              ),
-              Container(
-                color: Colors.white,
-              ),
+              LifeSkills(),
+              Devotionals(),
+              Resources(),
+              Quizzes(),
             ],
           ),
         ),
