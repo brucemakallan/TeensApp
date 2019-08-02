@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './menu_controller.dart';
-import './app_bar.dart';
-import './bottom_nav.dart';
 import './main_body.dart';
 
 class ZoomScaffold extends StatefulWidget {
@@ -27,14 +25,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   Curve slideInCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
 
   createContentDisplay() {
-    return zoomAndSlideContent(Container(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: CustomAppBar(context).getAppBar(),
-        body: MainBody(),
-        bottomNavigationBar: CustomBottomNav.getBottomNav(),
-      ),
-    ));
+    return zoomAndSlideContent(MainBody());
   }
 
   zoomAndSlideContent(Widget content) {
