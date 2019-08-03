@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flare_flutter/flare_actor.dart';
-import 'package:teens_app/screens/home.dart';
+import 'package:teens_app/screens/homepage/homepage.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/assets.dart';
@@ -69,7 +69,7 @@ class _FacebookAuthButtonState extends State<FacebookAuthButton> {
               globalState.loading = false;
               Navigator.pushReplacement(
                 context,
-                ScaleRoute(page: Home()),
+                ScaleRoute(page: HomePage()),
               );
             }).catchError((e) {
               print('Could not save email to shared preferences');

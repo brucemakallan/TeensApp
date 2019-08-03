@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static final API_URL = "https://teenscaps.herokuapp.com/api/articles/";
+  static const API_URL = "https://teenscaps.herokuapp.com/api/articles/";
+  static const SEARCH = 'Search';
+  static const CONNECT_WITH_GOD = 'Connect with God';
+  static const FAVORITES = 'Favorites';
+  static const HELP_DESK = 'Help Desk';
+  static const OUR_WEBSITE = 'Our Website';
+  static const PRIVACY_POLICY = 'Privacy Policy';
+  static const LOG_OUT = 'Log Out';
 }
 
 class LocalImages {

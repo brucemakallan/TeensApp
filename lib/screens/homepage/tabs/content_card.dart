@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../../utils/article.dart';
+import '../../../utils/errorWidget.dart';
 
 class ContentCard extends StatelessWidget {
   final Article article;
@@ -29,20 +30,7 @@ class ContentCard extends StatelessWidget {
                           ),
                       errorWidget: (context, url, error) => Padding(
                             padding: EdgeInsets.all(10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.error,
-                                  color: Colors.deepOrange,
-                                  semanticLabel: 'Image Error',
-                                ),
-                                Text(
-                                  'Could not find image',
-                                  style: TextStyle(color: Colors.black45),
-                                )
-                              ],
-                            ),
+                            child: CustomError('Could not find Image'),
                           ),
                     ),
                   )

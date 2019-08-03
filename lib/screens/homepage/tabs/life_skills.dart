@@ -6,6 +6,7 @@ import './content_card.dart';
 import '../../../utils/article.dart';
 import '../../../utils/assets.dart';
 import '../../../utils/dates.dart';
+import '../../../utils/errorWidget.dart';
 
 class LifeSkills extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class LifeSkills extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
-            return Text('has error');
+            return CustomError('Error fetching List. Please refresh');
           }
           // get life skills and ensure that the pinned item is the latest
           List jsonList = jsonDecode(snapshot.data.body);

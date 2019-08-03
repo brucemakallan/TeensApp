@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/scale_animation.dart';
+import '../login.dart';
 import './circular_image.dart';
 import './menu_controller.dart';
 import '../../utils/assets.dart';
+import '../../utils/shared_pref.dart';
 
 class MenuScreen extends StatelessWidget {
   final String imageUrl =
       "https://celebritypets.net/wp-content/uploads/2016/12/Adriana-Lima.jpg";
 
   final List<MenuItem> primaryOptions = [
-    MenuItem(Icons.search, 'Search'),
-    MenuItem(Icons.power, 'Connect with God'),
-    MenuItem(Icons.favorite, 'Favorites'),
+    MenuItem(Icons.search, Constants.SEARCH),
+    MenuItem(Icons.power, Constants.CONNECT_WITH_GOD),
+    MenuItem(Icons.favorite, Constants.FAVORITES),
   ];
   final List<MenuItem> secondaryOptions = [
-    MenuItem(Icons.help, 'Help Desk'),
-    MenuItem(Icons.insert_link, 'Our Website'),
-    MenuItem(Icons.lock, 'Privacy Policy'),
+    MenuItem(Icons.help, Constants.HELP_DESK),
+    MenuItem(Icons.insert_link, Constants.OUR_WEBSITE),
+    MenuItem(Icons.lock, Constants.PRIVACY_POLICY),
+    MenuItem(Icons.exit_to_app, Constants.LOG_OUT),
   ];
 
   @override
@@ -61,14 +65,11 @@ class MenuScreen extends StatelessWidget {
                   leading: Icon(
                     item.icon,
                     color: Colors.white,
-                    size: 28,
+                    size: 21,
                   ),
                   title: Text(
                     item.title,
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                    style: TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 );
               }).toList(),
@@ -86,6 +87,7 @@ class MenuScreen extends StatelessWidget {
                     item.title,
                     style: TextStyle(fontSize: 14, color: Colors.white),
                   ),
+                  onTap: () => item.handleTapEvent(context, item.title),
                 );
               }).toList(),
             ),
@@ -101,4 +103,29 @@ class MenuItem {
   IconData icon;
 
   MenuItem(this.icon, this.title);
+
+  void handleTapEvent(BuildContext context, String menuTitle) {
+    switch (menuTitle) {
+      case Constants.SEARCH:
+        break;
+      case Constants.CONNECT_WITH_GOD:
+        break;
+      case Constants.FAVORITES:
+        break;
+      case Constants.HELP_DESK:
+        break;
+      case Constants.OUR_WEBSITE:
+        break;
+      case Constants.PRIVACY_POLICY:
+        break;
+      case Constants.LOG_OUT:
+        SharedPref('email').removeKey();
+        Navigator.pushReplacement(
+          context,
+          ScaleRoute(page: Login()),
+        );
+        break;
+      default:
+    }
+  }
 }
