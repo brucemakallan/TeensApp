@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+class Constants {
+  static final API_URL = "https://teenscaps.herokuapp.com/api/articles/";
+}
+
 class LocalImages {
   static final String logo = "assets/images/logo.png";
   static final String splashBackground = "assets/images/splash_bg.jpg";
