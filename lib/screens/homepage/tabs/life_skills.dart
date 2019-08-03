@@ -10,16 +10,27 @@ import '../../../utils/dates.dart';
 class LifeSkills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const String CATEGORY = 'LIFE SKILL';
+
     return FutureBuilder(
       future: http.get(Constants.API_URL),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) return Text('has error');
-
+          if (snapshot.hasError) {
+            return Text('has error');
+          }
+          // get life skills and ensure that the pinned item is the latest
           List jsonList = jsonDecode(snapshot.data.body);
           List lifeSkills = jsonList
-              .where((entity) => entity['category'] == 'LIFE SKILL')
-              .toList();
+              .where((entity) =>
+                  entity['category'] == CATEGORY && entity['heading2'] == null)
+              .toList()
+                ..insert(
+                    0,
+                    jsonList.firstWhere((entity) =>
+                        entity['category'] == CATEGORY &&
+                        entity['heading2'] != null));
+
           return ListView.builder(
             itemCount: lifeSkills.length,
             padding: EdgeInsets.all(8),
