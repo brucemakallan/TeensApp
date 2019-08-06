@@ -66,8 +66,8 @@ class _FacebookAuthButtonState extends State<FacebookAuthButton> {
                 .setValue(user.providerData[0].email)
                 .then((void x) {
               print('Facebook User registered successfully');
-              globalState.name = user.providerData[0].displayName;
-              globalState.profileUrl = user.photoUrl;
+              SharedPref('name').setValue(user.providerData[0].displayName);
+              SharedPref('profileUrl').setValue(user.photoUrl);
               globalState.loading = false;
               Navigator.pushReplacement(
                 context,

@@ -25,6 +25,10 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalState globalState = Provider.of<GlobalState>(context);
+    SharedPref('name').getValue().then((name) => globalState.name = name);
+    SharedPref('profileUrl')
+        .getValue()
+        .then((profileUrl) => globalState.profileUrl = profileUrl);
 
     return GestureDetector(
       onPanUpdate: (details) {

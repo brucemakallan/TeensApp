@@ -67,8 +67,8 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
               .then((res) {
             SharedPref('email').setValue(user.email).then((void x) {
               print('Google User registered successfully');
-              globalState.name = user.displayName;
-              globalState.profileUrl = user.photoUrl;
+              SharedPref('name').setValue(user.displayName);
+              SharedPref('profileUrl').setValue(user.photoUrl);
               globalState.loading = false;
               Navigator.pushReplacement(
                 context,
