@@ -40,6 +40,7 @@ class Devotionals extends StatelessWidget {
             itemBuilder: (context, index) {
               Map<String, dynamic> jsonObject = devotionals[index];
               Article devotional = Article(
+                  index,
                   jsonObject['heading1'],
                   jsonObject['body'],
                   CustomDate(jsonObject['dateCreated']).toAmericanDateTime(),

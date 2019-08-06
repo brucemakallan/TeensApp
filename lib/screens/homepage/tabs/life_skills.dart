@@ -38,6 +38,7 @@ class LifeSkills extends StatelessWidget {
             itemBuilder: (context, index) {
               Map<String, dynamic> jsonObject = lifeSkills[index];
               Article lifeSkill = Article(
+                  index,
                   jsonObject['heading1'],
                   jsonObject['body'],
                   CustomDate(jsonObject['dateCreated']).toAmericanDateTime(),
