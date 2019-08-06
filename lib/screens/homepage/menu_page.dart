@@ -53,11 +53,15 @@ class MenuScreen extends StatelessWidget {
                     NetworkImage(globalState.profileUrl),
                   ),
                 ),
-                Text(
-                  globalState.name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Text(
+                    globalState.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
                   ),
                 )
               ],
