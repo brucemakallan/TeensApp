@@ -29,9 +29,11 @@ https://github.com/brucemakallan/TeensApp
 - Documentation: https://docs.google.com/document/d/1jz6kOrY2waWRZZ9u31JEvlltuRcPHdeVJkQxOMdq_GM/edit
 - Trello Board
 https://trello.com/b/tCtHUVWV/teensapp
+- Personal Resource Repo for Flutter:
+https://github.com/brucemakallan/Learn-Flutter
 
 #####  Attribution
 Splash Vector Background Image by: [starline - www.freepik.com](https://www.freepik.com/free-photos-vectors/background)
 
 #####  Watch the App Demo
-
+[TeensApp Demo (Learning Flutter) - Youtube](https://youtu.be/Q7bcgkDQdT0)
