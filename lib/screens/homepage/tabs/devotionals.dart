@@ -11,8 +11,6 @@ import '../../../utils/errorWidget.dart';
 class Devotionals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const String CATEGORY = 'DEVOTIONAL';
-
     return FutureBuilder(
       future: http.get(Constants.API_URL),
       builder: (context, snapshot) {
@@ -20,17 +18,21 @@ class Devotionals extends StatelessWidget {
           if (snapshot.hasError) {
             return CustomError('Error fetching List. Please refresh');
           }
-          // get all and ensure that the pinned item is the latest
+          // get life skills and ensure that the pinned item is the latest
           List jsonList = jsonDecode(snapshot.data.body);
           List devotionals = jsonList
               .where((entity) =>
-                  entity['category'] == CATEGORY && entity['heading2'] == null)
-              .toList()
-                ..insert(
-                    0,
-                    jsonList.firstWhere((entity) =>
-                        entity['category'] == CATEGORY &&
-                        entity['heading2'] != null));
+                  entity['category'] == Categories.DEVOTIONAL &&
+                  entity['pinned'] == false)
+              .toList();
+          try {
+            Map<String, dynamic> pinnedItem = jsonList.firstWhere((entity) =>
+                entity['category'] == Categories.DEVOTIONAL &&
+                entity['pinned'] == true);
+            devotionals.insert(0, pinnedItem);
+          } catch (e) {
+            print('No pinned items found');
+          }
 
           return ListView.builder(
             itemCount: devotionals.length,

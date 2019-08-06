@@ -11,6 +11,16 @@ class Constants {
   static const LOG_OUT = 'Log Out';
 }
 
+class Categories {
+  static const PROBLEM_SOLVING = 'SKILL OF PROBLEM SOLVING';
+  static const ONESELF = 'SKILL OF KNOWING AND LIVING WITH ONESELF';
+  static const OTHERS = 'SKILL OF KNOWING AND LIVING WITH OTHERS';
+  static const DEVOTIONAL = 'DEVOTIONAL';
+  static const RESOURCE = 'RESOURCE';
+  static const QUIZ = 'QUIZ';
+  static const GALLERY = 'GALLERY';
+}
+
 class LocalImages {
   static final String logo = "assets/images/logo.png";
   static final String splashBackground = "assets/images/splash_bg.jpg";

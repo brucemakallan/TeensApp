@@ -11,8 +11,6 @@ import '../../../utils/errorWidget.dart';
 class LifeSkills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const String CATEGORY = 'LIFE SKILL';
-
     return FutureBuilder(
       future: http.get(Constants.API_URL),
       builder: (context, snapshot) {
@@ -24,13 +22,15 @@ class LifeSkills extends StatelessWidget {
           List jsonList = jsonDecode(snapshot.data.body);
           List lifeSkills = jsonList
               .where((entity) =>
-                  entity['category'] == CATEGORY && entity['heading2'] == null)
-              .toList()
-                ..insert(
-                    0,
-                    jsonList.firstWhere((entity) =>
-                        entity['category'] == CATEGORY &&
-                        entity['heading2'] != null));
+                  isLifeSkill(entity['category']) && entity['pinned'] == false)
+              .toList();
+          try {
+            Map<String, dynamic> pinnedItem = jsonList.firstWhere((entity) =>
+                isLifeSkill(entity['category']) && entity['pinned'] == true);
+            lifeSkills.insert(0, pinnedItem);
+          } catch (e) {
+            print('No pinned items found');
+          }
 
           return ListView.builder(
             itemCount: lifeSkills.length,
@@ -50,4 +50,8 @@ class LifeSkills extends StatelessWidget {
       },
     );
   }
+
+  bool isLifeSkill(category) => (category == Categories.ONESELF ||
+      category == Categories.OTHERS ||
+      category == Categories.PROBLEM_SOLVING);
 }

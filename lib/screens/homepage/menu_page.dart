@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../state.dart';
 import '../../widgets/scale_animation.dart';
 import '../login.dart';
 import './circular_image.dart';
@@ -9,9 +10,6 @@ import '../../utils/assets.dart';
 import '../../utils/shared_pref.dart';
 
 class MenuScreen extends StatelessWidget {
-  final String imageUrl =
-      "https://celebritypets.net/wp-content/uploads/2016/12/Adriana-Lima.jpg";
-
   final List<MenuItem> primaryOptions = [
     MenuItem(Icons.search, Constants.SEARCH),
     MenuItem(Icons.power, Constants.CONNECT_WITH_GOD),
@@ -26,6 +24,8 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalState globalState = Provider.of<GlobalState>(context);
+
     return GestureDetector(
       onPanUpdate: (details) {
         if (details.delta.dx < 0) {
@@ -46,11 +46,11 @@ class MenuScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 16),
                   child: CircularImage(
-                    NetworkImage(imageUrl),
+                    NetworkImage(globalState.profileUrl),
                   ),
                 ),
                 Text(
-                  'Tatiana',
+                  globalState.name,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,

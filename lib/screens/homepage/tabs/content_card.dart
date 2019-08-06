@@ -25,21 +25,22 @@ class ContentCard extends StatelessWidget {
                     child: CachedNetworkImage(
                       imageUrl: article.imageUrls[0],
                       placeholder: (context, url) => Padding(
-                            padding: EdgeInsets.all(10),
-                            child: CircularProgressIndicator(),
-                          ),
+                        padding: EdgeInsets.all(10),
+                        child: CircularProgressIndicator(),
+                      ),
                       errorWidget: (context, url, error) => Padding(
-                            padding: EdgeInsets.all(10),
-                            child: CustomError('Could not find Image'),
-                          ),
+                        padding: EdgeInsets.all(10),
+                        child: CustomError('Could not find Image'),
+                      ),
                     ),
                   )
                 : Container(),
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(10),
               child: Text(
                 article.title,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 22),
               ),
             ),
             Padding(
